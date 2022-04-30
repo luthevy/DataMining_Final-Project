@@ -1,0 +1,20 @@
+DEFINE FUNCTION generate_summary(sentences, sentence_score_dict, threshold):
+
+    SET sentence_count TO 0
+
+    SET summary TO ""
+
+
+
+    FOR sentence IN sentences:
+
+        IF sentence[:15] IN sentence_score_dict and sentence_score_dict[sentence[:15]] >= (threshold):
+
+            summary += " " + sentence
+
+            sentence_count += 1
+
+
+
+    RETURN summary
+
